@@ -1,0 +1,14 @@
+const loadingState = document.querySelector(".loading"), htmlTag = document.getElementsByTagName("html")[0]; function mobileToggleMenu() { setTimeout(() => { let e = document.querySelector(".toggle-menu-icon"), t = document.querySelector(".mobOnly-menu"), l = document.querySelector(".closeIcon"); e?.addEventListener("click", () => { t.classList.add("show"), document.body.style.overflow = "hidden", htmlTag.style.overflow = "hidden" }), l?.addEventListener("click", () => { t.classList.remove("show"), document.body.style.overflow = "auto", htmlTag.style.overflow = "auto" }) }, 200) } loadingState && (loadingState.style.display = "block", htmlTag.style.overflow = "hidden"), window.onload = function () { function e() { let e = document.querySelector(".header"); window.scrollY >= 50 ? e.classList.add("sticky") : e.classList.remove("sticky") } mobileToggleMenu(), e(), window.addEventListener("scroll", e); let t = document.querySelector("body"); setTimeout(() => { t && (loadingState.style.display = "none", htmlTag.style.overflow = "auto") }, 200); let l = document.getElementById("footerDate"), o = document.getElementById("headerDate"), n = new Date().getUTCFullYear(); l && (l.innerHTML = n), o && (o.innerHTML = n) };
+
+$(function () {
+  $("video source").each(function () {
+    var sourceFile = $(this).data('src');
+    $(this).attr("src", sourceFile);
+    var video = this.parentElement;
+    video.load();
+    // Add event listener for canplaythrough event
+    $(video).on('canplaythrough', function () {
+      video.play();
+    });
+  });
+});
